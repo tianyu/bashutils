@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+if [ ! -d "$1" ]; then 1; fi
+cd $1
+pwd
