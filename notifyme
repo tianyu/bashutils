@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+$@
+exitCode=$?
+if [ $exitCode -eq 0 ]; then
+	msg="SUCCESS"
+else
+	msg="FAILURE ($exitCode)"
+fi
+notify-send "$msg:" "$*"
