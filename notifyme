@@ -8,3 +8,5 @@ else
 	msg="FAILURE ($exitCode)"
 fi
 notify-send "$msg:" "$*"
+
+exit $exitCode # exit with the original exit code
