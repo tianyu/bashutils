@@ -20,6 +20,6 @@ int main() {
             putchar(c);
             break;
         }
-    } end:
+    }
     return 0;
 }
