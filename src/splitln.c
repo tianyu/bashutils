@@ -1,7 +1,16 @@
 #include <stdio.h>
 
 void endLine() {
-    # TODO
+    for (int c = getchar(); c != EOF; c = getchar()) {
+        if (c = ' ') {
+            putchar('\n');
+            return;
+        } else if (('0' <= c && c <= '9') ||
+                   ('A' <= c && c <= 'Z') ||
+                   ('a' <= c && c <= 'z')) {
+            return;
+        }
+    }
 }
 
 int main() {
