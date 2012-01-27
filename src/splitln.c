@@ -3,14 +3,16 @@
 static void endLine() {
     int c;
     for (c = getchar(); c != EOF; c = getchar()) {
-       if (c = ' ') {
+       if (c == ' ') {
             putchar('\n');
             return;
         } else if (('0' <= c && c <= '9') ||
                    ('A' <= c && c <= 'Z') ||
                    ('a' <= c && c <= 'z')) {
+            putchar(c);
             return;
         }
+        putchar(c);
     }
 }
 
