@@ -21,6 +21,7 @@ void splitLine() {
         case EOF:
             return;
         case '.': case '!': case '?':
+            putchar(c);
             endLine();
             break;
         case '\n':
