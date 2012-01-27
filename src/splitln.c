@@ -2,7 +2,7 @@
 
 void endLine() {
     for (int c = getchar(); c != EOF; c = getchar()) {
-        if (c = ' ') {
+       if (c = ' ') {
             putchar('\n');
             return;
         } else if (('0' <= c && c <= '9') ||
@@ -13,11 +13,11 @@ void endLine() {
     }
 }
 
-int main() {
+void splitLine() {
     for (int c = getchar(); c != EOF; c = getchar()) {
         switch (c) {
         case EOF:
-            goto end;
+            return;
         case '.': case '!': case '?':
             endLine();
             break;
@@ -30,5 +30,9 @@ int main() {
             break;
         }
     }
+}
+
+int main() {
+    splitLine();
     return 0;
 }
