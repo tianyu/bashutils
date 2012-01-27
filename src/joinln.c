@@ -1,5 +1,4 @@
-#include <stdio.h>
+#include "joinln.h"
 
-int main() {
-    return 0;
+void joinLine() {
 }

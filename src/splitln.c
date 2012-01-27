@@ -1,7 +1,8 @@
 #include <stdio.h>
 
-void endLine() {
-    for (int c = getchar(); c != EOF; c = getchar()) {
+static void endLine() {
+    int c;
+    for (c = getchar(); c != EOF; c = getchar()) {
        if (c = ' ') {
             putchar('\n');
             return;
@@ -14,7 +15,8 @@ void endLine() {
 }
 
 void splitLine() {
-    for (int c = getchar(); c != EOF; c = getchar()) {
+    int c;
+    for (c = getchar(); c != EOF; c = getchar()) {
         switch (c) {
         case EOF:
             return;
@@ -30,9 +32,4 @@ void splitLine() {
             break;
         }
     }
-}
-
-int main() {
-    splitLine();
-    return 0;
 }
