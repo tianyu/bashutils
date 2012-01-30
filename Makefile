@@ -1,7 +1,15 @@
-BIN_DIR=bin
-
 CC = gcc
-CCFLAGS = -g -Wall -MMD
+CCFLAGS = -Wall -MMD
+
+ifdef DEBUG
+	CCFLAGS += -g
+	BIN_DIR = dbg
+else
+	CCFLAGS += -O2
+	BIN_DIR = bin
+endif
+
+INSTALL_DIR ?= /usr/local/bin
 
 # Targets
 JOINLN = $(BIN_DIR)/joinln
@@ -24,6 +32,8 @@ DEPENDS = $(OBJECTS:.o=.d)
 all: $(TARGETS)
 clean:
 	rm -f $(OBJECTS) $(DEPENDS) $(TARGETS)
+install: all
+	cp $(TARGETS) $(INSTALL_DIR)
 
 # Target for $(JOINLN)
 $(JOINLN): $(JOINLN_OBJ) | $(BIN_DIR)
