@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+file=$(cat "$1") || exit 1
+echo "$file" | joinln | vipe | splitln > "$1"
