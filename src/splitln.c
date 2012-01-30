@@ -3,7 +3,11 @@
 static void endLine() {
     int c;
     for (c = getchar(); c != EOF; c = getchar()) {
-       if (c == ' ') {
+        if (c == ' ') {
+            putchar('\n');
+            return;
+        } else if (c == '\n') {
+            putchar('\r');
             putchar('\n');
             return;
         } else if (('0' <= c && c <= '9') ||
@@ -12,7 +16,7 @@ static void endLine() {
             putchar(c);
             return;
         }
-        putchar(c);
+       putchar(c);
     }
 }
 
