@@ -4,15 +4,13 @@
 void joinLine() {
     int c;
     for (c = getchar(); c != EOF; c = getchar()) {
-        if (c == '\n') {
-            putchar(' ');
-        } else if (c == '\r') {
+        if (c == '\r') {
             c = getchar();
             if (c == EOF) {
                 putchar('\r');
                 break;
             } else if (c == '\n') {
-                putchar('\n');
+                putchar(' ');
             } else {
                 putchar('\r');
                 putchar(c);

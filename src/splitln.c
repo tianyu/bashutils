@@ -4,9 +4,6 @@ static void endLine() {
     int c;
     for (c = getchar(); c != EOF; c = getchar()) {
         if (c == ' ') {
-            putchar('\n');
-            return;
-        } else if (c == '\n') {
             putchar('\r');
             putchar('\n');
             return;
@@ -29,10 +26,6 @@ void splitLine() {
         case '.': case '!': case '?':
             putchar(c);
             endLine();
-            break;
-        case '\n':
-            putchar('\r');
-            putchar('\n');
             break;
         default:
             putchar(c);
