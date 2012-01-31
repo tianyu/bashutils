@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 
-file=$(cat "$1") || exit 1
-echo "$file" | joinln | vipe | splitln > "$1"
+swp="$1~"
+joinln < "$1" | vipe > "$swp"
+splitln < "$swp" > "$1" || exit 1
+rm "$swp"
