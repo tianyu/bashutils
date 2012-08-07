@@ -33,7 +33,7 @@ all: $(TARGETS)
 clean:
 	rm -f $(OBJECTS) $(DEPENDS) $(TARGETS)
 install: all
-	cp $(TARGETS) $(INSTALL_DIR)
+	cp $(TARGETS) bash/* $(INSTALL_DIR)
 
 # Target for $(JOINLN)
 $(JOINLN): $(JOINLN_OBJ) | $(BIN_DIR)
