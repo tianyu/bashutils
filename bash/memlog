@@ -8,7 +8,7 @@ proc=$1
 find_process() {
 	while [ 1 ]; do
 		local proc=$1
-		pidof -s $proc
+		pid=$(pidof -s $proc)
 		if [ $? -eq 0 ]; then return; fi
 		sleep 0.5s
 	done
@@ -16,7 +16,6 @@ find_process() {
 
 log_process() {
 	while [ 1 ]; do
-		local pid=$1
 		local output=$(pmap $pid)
 		if [ -z "$output" ]; then return; fi
 		echo "$output" | grep 'total' | sed 's/.* \([0-9]*\)K.*/\1/'
@@ -25,6 +24,6 @@ log_process() {
 }
 
 while [ 1 ]; do
-	pid=$(find_process $proc)
-	log_process $pid
+	find_process $proc
+	log_process
 done
