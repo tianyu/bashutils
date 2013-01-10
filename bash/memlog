@@ -3,14 +3,28 @@ if [ -z $1 ]; then
 	echo No process name specified.
 	exit 1;
 fi
+proc=$1
+
+find_process() {
+	while [ 1 ]; do
+		local proc=$1
+		pidof -s $proc
+		if [ $? -eq 0 ]; then return; fi
+		sleep 0.5s
+	done
+}
+
+log_process() {
+	while [ 1 ]; do
+		local pid=$1
+		local output=$(pmap $pid)
+		if [ -z "$output" ]; then return; fi
+		echo "$output" | grep 'total' | sed 's/.* \([0-9]*\)K.*/\1/'
+		sleep 1s
+	done
+}
+
 while [ 1 ]; do
-	pid=$(pidof -s $1)
-	if [ $? -eq 0 ]; then break; fi
-	sleep 0.5s
-done
-while [ 1 ]; do
-	output=$(pmap $pid)
-	if [ $? -gt 0 ]; then exit; fi
-	echo $output | grep 'total' | sed 's/.* \([0-9]*\)K.*/\1/'
-	sleep 1s
+	pid=$(find_process $proc)
+	log_process $pid
 done
