@@ -19,7 +19,7 @@ log_process() {
 		local output=$(pmap $pid)
 		if [ -z "$output" ]; then return; fi
 		echo "$output" | grep 'total' | sed 's/.* \([0-9]*\)K.*/\1/'
-		sleep 1s
+		sleep 1m
 	done
 }
 
