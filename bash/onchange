@@ -2,6 +2,7 @@
 
 events+='-e close_write '
 events+='-e delete '
+events+='-e move '
 
 exclude=".*(sw[xp]|~|4913)$"
 
