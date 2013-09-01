@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+events+='-e close_write '
+events+='-e delete '
+
+exclude=".*(sw[xp]|~|4913)$"
+
+while inotifywait -qr $events --exclude="$exclude" . ; do
+	echo
+	$@
+	echo
+done
