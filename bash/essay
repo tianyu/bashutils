@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-swp="$1~"
-joinln < "$1" | vipe > "$swp"
-splitln < "$swp" > "$1" || exit 1
-rm "$swp"
