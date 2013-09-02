@@ -8,7 +8,7 @@ exclude=".*(\.sw[xp]x?|~|4913)$"
 
 timefmt='%x %X'
 
-format='Event(s) %e on "%f" at %T'
+format='Event(s) %e on "%w%f" at %T'
 
 clear
 while true; do
