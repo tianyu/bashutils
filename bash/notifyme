@@ -4,12 +4,9 @@ $@
 exitCode=$?
 if [ $exitCode -eq 0 ]; then
 	msg="SUCCESS"
-	sound=/usr/share/sounds/KDE-Sys-App-Positive.ogg
 else
 	msg="FAILURE ($exitCode)"
-	sound=/usr/share/sounds/KDE-Sys-Warning.ogg
 fi
 notify-send "$msg" "$*"
-play -qV0 $sound &
 
 exit $exitCode # exit with the original exit code
