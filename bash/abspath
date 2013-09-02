@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-if [ ! -d "$1" ]; then 1; fi
+[ -d "$1" ] || exit 1
 cd $1
 pwd
