@@ -2,13 +2,20 @@
 
 events+='-e close_write '
 events+='-e delete '
-events+='-e move '
+events+='-e moved_to '
 
-exclude=".*(sw[xp]|~|4913)$"
+exclude=".*(\.sw[xp]x?|~|4913)$"
+
+timefmt='%x %X'
+
+format='Event(s) %e on "%f" at %T'
 
 clear
 while true; do
-	output=$(inotifywait -qr $events --exclude="$exclude" .) || exit $?
+	output=$(inotifywait -qr $events \
+			--exclude="$exclude" \
+			--format="$format" \
+			--timefmt="$timefmt" .) || exit $?
 	clear
 	echo $output
 	$@
