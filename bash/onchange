@@ -6,8 +6,10 @@ events+='-e move '
 
 exclude=".*(sw[xp]|~|4913)$"
 
-while inotifywait -qr $events --exclude="$exclude" . ; do
-	echo
+clear
+while true; do
+	output=$(inotifywait -qr $events --exclude="$exclude" .) || exit $?
+	clear
+	echo $output
 	$@
-	echo
 done
