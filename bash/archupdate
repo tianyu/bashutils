@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+confirm 'Update official packages?' &&
+sudo aura -Suy &&
+confirm 'Update AUR packages?' &&
+sudo aura -Akua;
+confirm 'Confirm exit.' && exit 1
