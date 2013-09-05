@@ -4,7 +4,7 @@ events+='-e close_write '
 events+='-e delete '
 events+='-e moved_to '
 
-exclude=".*(\.sw[xp]x?|~|4913)$"
+exclude=".*(\.sw[oxp]x?|~|4913)$"
 
 timefmt='%x %X'
 
