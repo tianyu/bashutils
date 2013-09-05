@@ -4,6 +4,7 @@ while true; do
 	[ -z "$@" ] || echo -n "$@ "
 	read -p "(Y/n): " -n 1 -r
 	echo
+	[ -z $REPLY ] && exit 0
 	[[ $REPLY =~ ^[Yy]$ ]] && exit 0
 	[[ $REPLY =~ ^[Nn]$ ]] && exit 1
 	echo "Please enter 'Y' or 'N'"
