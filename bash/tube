@@ -2,4 +2,11 @@
 
 link=$1
 [ -n "$link" ] || exit 1
-youtube-dl "$link" -o- | vlc -
+tmpdir=/tmp/tube
+mkdir -p $tmpdir
+youtube-dl --no-part "$link" -o "$tmpdir/%(title)s.%(ext)s" 2|
+sed -un 's/^.*Destination: \(.*\)$/\1/p' |
+while read video; do
+	echo Watching $video
+	vlc "$video"
+done
