@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+events+='-e close_write '
+events+='-e moved_to '
+
+format='%w%f'
+
+while true; do
+	inotifywait -qr $events \
+				--format="$format" . || exit $?
+done
