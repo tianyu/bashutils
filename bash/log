@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+function usage() {
+	echo "Usage: $0 <logfile>"
+	exit 1
+}
+
+[ $1 ] || usage
+file=$1
+
+while read line; do
+	echo -e "$(date +%F):\t$line" >> $file
+done
