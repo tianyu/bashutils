@@ -9,5 +9,5 @@ function usage() {
 file=$1
 
 while read line; do
-	echo -e "$(date +%F):\t$line" >> $file
+	echo -e "$(date +'%F %T'):\t$line" >> $file
 done
