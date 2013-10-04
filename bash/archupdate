@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-confirm 'Update official packages?' &&
+confirm ':: Update official packages?' &&
 sudo aura -Suy &&
-confirm 'Update AUR packages?' &&
+confirm ':: Update AUR packages?' &&
 sudo aura -Akua;
-confirm 'Remove unused packages and repositories?' &&
+confirm ':: Remove unused packages and repositories?' &&
 sudo aura -Sc;
-while true; do confirm 'Confirm exit.' && exit 1; done
+while true; do confirm ':: Confirm exit.' && exit 1; done
