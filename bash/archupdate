@@ -4,4 +4,4 @@ confirm 'Update official packages?' &&
 sudo aura -Suy &&
 confirm 'Update AUR packages?' &&
 sudo aura -Akua;
-confirm 'Confirm exit.' && exit 1
+while true; do confirm 'Confirm exit.' && exit 1; done
