@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-confirm ':: Update official packages?' &&
+sudo confirm ':: Update official packages?' &&
+await ping -nc1 8.8.8.8 &> /dev/null &&
 sudo aura -Suy &&
 confirm ':: Update AUR packages?' &&
 sudo aura -Akua;
