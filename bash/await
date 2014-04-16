@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+usage_error() {
+	echo ERROR: $1
+	echo "Usage: $0 <cmd-to-await>"
+	exit 1
+}
+
+[ "$*" ] || usage_error "Nothing to wait for.";
+while true; do
+	eval "$@" && exit 0
+	sleep 1
+done
+
+exit 1
