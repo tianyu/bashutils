@@ -10,13 +10,11 @@ timefmt='%x %X'
 
 format='Event(s) %e on "%w%f" at %T'
 
-clear
 while true; do
 	output=$(inotifywait -qr $events \
 			--exclude="$exclude" \
 			--format="$format" \
 			--timefmt="$timefmt" .) || exit $?
-	clear
 	echo $output
-	$@
+	eval $@
 done
