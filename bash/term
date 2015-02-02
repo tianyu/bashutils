@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+konsole --nofork -e "$@" &> /dev/null &

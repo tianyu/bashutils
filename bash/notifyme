@@ -1,12 +1,7 @@
 #!/usr/bin/env bash
 
-$@
-exitCode=$?
-if [ $exitCode -eq 0 ]; then
-	msg="SUCCESS"
-else
-	msg="FAILURE ($exitCode)"
-fi
-notify-send "$msg" "$*"
-
-exit $exitCode # exit with the original exit code
+"$@"
+code=$?
+[ $code -eq 0 ] && message=Success || message="Exit Code: $code"
+notify-send $message "$*"
+exit $code

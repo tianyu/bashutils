@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+exec term bash -c "$*"' || ( code=$?; read -s -p "EXIT CODE $code " -N1; exit $code )'
