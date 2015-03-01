@@ -5,6 +5,12 @@ await ping -nc1 8.8.8.8 &> /dev/null &&
 sudo aura -Suy &&
 confirm ':: Update AUR packages?' &&
 sudo aura -Akua;
+
+unused="$(pacman -Qqdt)" &&
+[ "$unused" ] && confirm ':: Remove unused dependencies?' &&
+sudo pacman -Rsn "$unused";
+
 confirm ':: Remove unused packages and repositories?' &&
 sudo aura -Sc;
+
 while true; do confirm ':: Confirm exit.' && exit 1; done
